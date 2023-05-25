@@ -7,10 +7,10 @@ class Node{
 }
 
 // Linked list creation with linking
-const a = new Node('A')
-const b = new Node('B')
-const c = new Node('C')
-const d = new Node('D')
+const a = new Node(1)
+const b = new Node(2)
+const c = new Node(3)
+const d = new Node(4)
 a.next = b
 b.next = c
 c.next = d
@@ -23,7 +23,7 @@ const printAll = (head) => {
     current = current.next;
    }
 }
-printAll(a)
+//printAll(a)
 
 // Traverse and print all with recursion
 const printAllRec = (head) => {
@@ -33,4 +33,25 @@ const printAllRec = (head) => {
   console.log(head.value);
   printAllRec(head.next);
 }
-printAllRec(a);
+
+const getSum = (head) => {
+  let current = head;
+  let sum = 0;
+  while(current != null){
+    sum += current.value;
+    current = current.next; 
+  }
+  return sum;
+}
+
+const getSumRec = (head, sum) => {
+  if(head == null){
+    return sum;
+  }
+
+  sum = sum + head.value;
+  return getSumRec(head.next, sum);
+}
+//printAllRec(a);
+//console.log(getSum(a));
+console.log(getSumRec(a, 0));
